@@ -18,12 +18,27 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+}
+
+.scroll-container::-webkit-scrollbar {
+  width: 12px;
+}
+
+.scroll-container::-webkit-scrollbar-track {
+  background: #edf2fb;
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+  background: #4361ee;
+  border-radius: 6px;
+}
+
+.scroll-container::-webkit-scrollbar-thumb:hover {
+  background: #4361ee;
+}
+
+.scroll-container::-webkit-scrollbar-corner {
+  background: #4361ee;
 }
 
 @layer utilities {
