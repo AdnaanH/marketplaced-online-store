@@ -1,3 +1,4 @@
+import { RiShoppingBag4Fill } from "react-icons/ri";
 import Links from "../Links/Links";
 import AcctMgmt from "./AcctMgmt";
 import AcctMobMenu from "./AcctMobMenu";
@@ -10,6 +11,7 @@ const Header = () => {
                 <CatMenu />
                 <Links />
             </div>
+            <RiShoppingBag4Fill className="lg:hidden grid text-cta text-5xl" />
             <div className="lg:grid hidden">
                 <AcctMgmt />
             </div>

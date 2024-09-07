@@ -21,7 +21,7 @@ body {
 }
 
 .scroll-container::-webkit-scrollbar {
-  width: 12px;
+  width: 8px;
 }
 
 .scroll-container::-webkit-scrollbar-track {

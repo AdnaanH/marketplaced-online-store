@@ -32,36 +32,35 @@ export async function getFeaturedProducts() {
   }
 
 
-export async function getCategoriesGroupedByParent() {
-  const categories = await sanityClient.fetch<Category[]>(
-    `*[_type == "category"]{
-      _id,
-      name,
-      slug,
-      "parentCategory": parentCategory->name
-    }`,
-    {},
-    { cache: 'no-cache' }
-  );
-
-  console.log('Fetched Categories:', categories); // Add this line
-
-  const groupedCategories = categories.reduce((acc, category) => {
-    const parentCategoryName = category.parentCategory || 'Main Categories';
-    if (!acc[parentCategoryName]) {
-      acc[parentCategoryName] = [];
-    }
-    acc[parentCategoryName].push({
-      value: category.slug.current,
-      label: category.name,
-    });
-    return acc;
-  }, {} as Record<string, { value: string; label: string }[]>);
-
-  return Object.entries(groupedCategories).map(([label, items]) => ({
-    label,
-    items,
-  }));
-}
-
-
+  export async function getCategoriesGroupedByParent() {
+    const categories = await sanityClient.fetch<Category[]>(
+      `*[_type == "category"]{
+        _id,
+        name,
+        slug,
+        "parentCategory": parentCategory->name
+      }`,
+      {},
+      { cache: 'no-cache' }
+    );
+  
+    console.log('Fetched Categories:', categories); // Add this line
+  
+    const groupedCategories = categories.reduce((acc, category) => {
+      const parentCategoryName = category.parentCategory || 'All Categories';
+      if (!acc[parentCategoryName]) {
+        acc[parentCategoryName] = [];
+      }
+      acc[parentCategoryName].push({
+        value: category.slug.current,
+        label: category.name,
+      });
+      return acc;
+    }, {} as Record<string, { value: string; label: string }[]>);
+  
+    return Object.entries(groupedCategories).map(([label, items]) => ({
+      label,
+      items,
+    }));
+  }
+  
