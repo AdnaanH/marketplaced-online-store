@@ -16,7 +16,7 @@ const config: Config = {
         "error": "#c1121f",
       },
       backgroundImage: {
-        
+        "bg": "url(/bg.png)",
       },
     },
   },
