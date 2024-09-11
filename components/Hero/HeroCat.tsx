@@ -6,7 +6,7 @@ const HeroCat = () => {
 
             <CatComponent 
                 title="Modern Smartphones" 
-                description="Pick the best design for you." 
+                description="Pick the best design that suits you." 
                 imgSrc="/iphone.png"
                 bg="bg-primary"
             />

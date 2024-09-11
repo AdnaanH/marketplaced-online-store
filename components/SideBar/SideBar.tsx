@@ -24,15 +24,27 @@ const SideBar: React.FC<SideBarProps> = ({ setIsMenuOpen }) => {
   useEffect(() => {
     async function fetchCategories() {
       try {
-        const groupedCategories: Category[] = await getCategoriesGroupedByParent();
-        setCategories(groupedCategories);
+        const groupedCategories: any[] = await getCategoriesGroupedByParent(); // Assuming response structure is different
+        
+        // Map the response to ensure `value` is present in the items
+        const categoriesWithValues: Category[] = groupedCategories.map((category) => ({
+          ...category,
+          value: category.value || category.label, // Ensure `value` exists for category
+          items: category.items.map((item: any) => ({
+            ...item,
+            value: item.value || item.label, // Ensure `value` exists for each item
+          })),
+        }));
+  
+        setCategories(categoriesWithValues);
       } catch (error) {
         console.error('Failed to fetch categories', error);
       }
     }
-
+  
     fetchCategories();
   }, []);
+  
 
   return (
     <aside
