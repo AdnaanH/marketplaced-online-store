@@ -1,3 +1,4 @@
+import HomeBlogs from "@/components/Blogs/HomeBlogs";
 import Hero from "@/components/Hero/Hero";
 import NewProds from "@/components/ProductSections/NewProds";
 import PopCats from "@/components/ProductSections/PopCats";
@@ -13,9 +14,12 @@ const Home: React.FC = () => {
       <PopProds />
       <PopCats />
       <NewProds />
-      <ProdsOne />
-      <ProdsOne />
-      <ProdsOne />
+      <ProdsOne catTitle="iPhone" />
+      <ProdsOne catTitle="Samsung Smartphones" />
+      <ProdsOne catTitle="Redmi" />
+      <ProdsOne catTitle="Tecno" />
+      <ProdsOne catTitle="Huawei" />
+      <HomeBlogs />
     </>
   );
 };
